@@ -3,136 +3,102 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professional Job Application Form</title>
+  <title>Job Application Form - Multi Language</title>
 
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
-    body {
-      background-color: #f8f9fa;
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    fieldset {
-      border: 2px solid #007bff;
-      border-radius: 8px;
-      padding: 20px;
-      background-color: #fff;
-      display: none;
-    }
-    fieldset.active {
-      display: block;
-    }
-    legend {
-      color: #007bff;
-      font-weight: bold;
-    }
-    .btn-group {
-      margin-top: 15px;
-    }
-    .step {
-      display: inline-block;
-      width: 20%;
-      text-align: center;
-      padding: 10px;
-      background-color: #e9ecef;
-      border-radius: 5px;
-      margin-right: 5px;
-      font-weight: bold;
-    }
-    .step.active {
-      background-color: #007bff;
-      color: #fff;
-    }
-    .step.completed {
-      background-color: #28a745;
-      color: #fff;
-    }
+    body { background-color: #f2f2f2; font-family: Arial, sans-serif; padding: 20px; }
+    fieldset { border: 2px solid #007bff; padding: 20px; border-radius: 8px; background-color: #fff; margin-bottom: 20px; }
+    legend { color: #007bff; font-weight: bold; }
+    .form-control, .form-check-input { margin-bottom: 10px; }
+    textarea { resize: none; }
   </style>
 </head>
 <body>
 
 <div class="container">
-  <h2 class="mb-4">Professional Job Application Form</h2>
+  <h2 class="mb-4">Job Application Form</h2>
 
-  <!-- Step indicators -->
+  <!-- Language Selector -->
   <div class="mb-3">
-    <div class="step active" id="step1">Personal</div>
-    <div class="step" id="step2">Position</div>
-    <div class="step" id="step3">Interests</div>
-    <div class="step" id="step4">Availability</div>
-    <div class="step" id="step5">CV & Message</div>
+    <label for="languageSelect" class="form-label">Select Language:</label>
+    <select id="languageSelect" class="form-select" onchange="changeLanguage()">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="tn">Setswana</option>
+      <option value="kg">Kalanga</option>
+    </select>
   </div>
 
-  <form id="multiForm">
+  <form id="jobForm">
 
-    <!-- Page 1: Personal Information -->
-    <fieldset class="active">
+    <!-- Personal Information -->
+    <fieldset>
       <legend>Personal Information</legend>
-      <div class="mb-3">
-        <label for="fullname" class="form-label">Full Name *</label>
-        <input type="text" id="fullname" class="form-control" name="fullname">
+
+      <label for="fullname" class="form-label">Full Name</label>
+      <input type="text" id="fullname" class="form-control" name="fullname" placeholder='e.g Nicholas Tiro Chipunduka'>
+
+      <label for="email" class="form-label">Email Address</label>
+      <input type="email" id="email" class="form-control" name="email" placeholder='e.g example@gmail.com'>
+
+      <label for="telephone" class="form-label">Phone Number</label>
+      <div class="input-group mb-3">
+        <select id="countryCode" class="form-select" style="max-width:120px;">
+          <option value="+267" selected>Botswana (+267)</option>
+          <option value="+27">South Africa (+27)</option>
+          <option value="+263">Zimbabwe (+263)</option>
+          <option value="+260">Zambia (+260)</option>
+          <option value="+255">Tanzania (+255)</option>
+          <option value="+1">USA (+1)</option>
+          <option value="+44">UK (+44)</option>
+        </select>
+        <input type="text" id="telephone" class="form-control" name="telephone" placeholder="77777777">
       </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Email *</label>
-        <input type="email" id="email" class="form-control" name="email">
-      </div>
-      <div class="mb-3">
-        <label for="telephone" class="form-label">Telephone *</label>
-        <input type="text" id="telephone" class="form-control" name="telephone">
-      </div>
-      <div class="mb-3">
-        <label for="address" class="form-label">Address</label>
-        <input type="text" id="address" class="form-control" name="address">
-      </div>
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary" onclick="nextPage(1)">Next</button>
-      </div>
+
+      <label for="address" class="form-label">Physical Address</label>
+      <input type="text" id="address" class="form-control" name="address" placeholder='e.g Gaborone/Extension14, Francistown/Monarch Area10 e.t.c'>
     </fieldset>
 
-    <!-- Page 2: Position Information -->
+    <!-- Position Information -->
     <fieldset>
       <legend>Position Information</legend>
-      <div class="mb-3">
-        <label for="jobtitle" class="form-label">Desired Job Title *</label>
-        <select id="jobtitle" class="form-select" name="jobtitle">
-          <option value="">Select a position</option>
-          <option value="Account Executive">Account Executive</option>
-          <option value="Business Development">Business Development</option>
-          <option value="Inside Sales">Inside Sales</option>
-          <option value="Sales Manager">Sales Manager</option>
-          <option value="VP Sales">VP Sales</option>
-        </select>
+
+      <label for="jobtitle" class="form-label">Desired Job Title</label>
+      <select id="jobtitle" class="form-select" name="jobtitle">
+        <option value="">Select a position</option>
+        <option value="Account Executive">Account Executive</option>
+        <option value="Business Development">Business Development</option>
+        <option value="Inside Sales">Inside Sales</option>
+        <option value="Sales Manager">Sales Manager</option>
+        <option value="VP Sales">VP Sales</option>
+      </select>
+
+      <label class="form-label mt-3">Employment Type</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="employment" value="Part-time contract">
+        <label class="form-check-label">Part-time contract</label>
       </div>
-      <div class="mb-3">
-        <label class="form-label">Employment Type *</label>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="employment" value="Part-time contract">
-          <label class="form-check-label">Part-time contract</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="employment" value="Part-time permanent">
-          <label class="form-check-label">Part-time permanent</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="employment" value="Full-time contract">
-          <label class="form-check-label">Full-time contract</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="employment" value="Full-time permanent">
-          <label class="form-check-label">Full-time permanent</label>
-        </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="employment" value="Part-time permanent">
+        <label class="form-check-label">Part-time permanent</label>
       </div>
-      <div class="btn-group">
-        <button type="button" class="btn btn-secondary" onclick="prevPage(2)">Previous</button>
-        <button type="button" class="btn btn-primary" onclick="nextPage(2)">Next</button>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="employment" value="Full-time contract">
+        <label class="form-check-label">Full-time contract</label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="employment" value="Full-time permanent">
+        <label class="form-check-label">Full-time permanent</label>
       </div>
     </fieldset>
 
-    <!-- Page 3: Areas of Interest -->
+    <!-- Areas of Interest -->
     <fieldset>
-      <legend>Areas of Interest *</legend>
+      <legend id="interestLegend">Areas of Interest</legend>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" name="interest" value="Account Executive">
         <label class="form-check-label">Account Executive</label>
@@ -153,121 +119,128 @@
         <input class="form-check-input" type="checkbox" name="interest" value="VP Sales">
         <label class="form-check-label">VP Sales</label>
       </div>
-      <div class="mb-3 mt-3">
-        <label class="form-label">Willing to Relocate?</label>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="relocate" value="Yes">
-          <label class="form-check-label">Yes</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="relocate" value="No">
-          <label class="form-check-label">No</label>
-        </div>
+
+      <label for="relocate" class="form-label mt-3">Willing to Relocate?</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="relocate" value="Yes">
+        <label class="form-check-label">Yes</label>
       </div>
-      <div class="btn-group">
-        <button type="button" class="btn btn-secondary" onclick="prevPage(3)">Previous</button>
-        <button type="button" class="btn btn-primary" onclick="nextPage(3)">Next</button>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="relocate" value="No">
+        <label class="form-check-label">No</label>
       </div>
     </fieldset>
 
-    <!-- Page 4: Availability -->
+    <!-- Additional Message -->
     <fieldset>
-      <legend>Availability</legend>
-      <div class="mb-3">
-        <label for="startdate" class="form-label">Earliest Start Date</label>
-        <input type="date" id="startdate" class="form-control" name="startdate">
-      </div>
-      <div class="btn-group">
-        <button type="button" class="btn btn-secondary" onclick="prevPage(4)">Previous</button>
-        <button type="button" class="btn btn-primary" onclick="nextPage(4)">Next</button>
-      </div>
+      <legend>Additional Message</legend>
+      <label for="message" class="form-label">Why are you suitable for the role?</label>
+      <textarea id="message" class="form-control" name="message" rows="4" placeholder='e.g I deserve the job becaurse  i am ...'></textarea>
     </fieldset>
 
-    <!-- Page 5: CV Upload & Additional Message -->
-    <fieldset>
-      <legend>CV & Additional Message</legend>
-      <div class="mb-3">
-        <label for="cv" class="form-label">Upload CV (PDF only)</label>
-        <input type="file" id="cv" class="form-control" name="cv" accept=".pdf">
-      </div>
-      <div class="mb-3">
-        <label for="message" class="form-label">Additional Message</label>
-        <textarea id="message" class="form-control" name="message" rows="4"></textarea>
-      </div>
-      <div class="btn-group">
-        <button type="button" class="btn btn-secondary" onclick="prevPage(5)">Previous</button>
-        <button type="submit" class="btn btn-success">Submit</button>
-      </div>
-    </fieldset>
-
+    <input type="submit" class="btn btn-primary" value="Submit">
+    <input type="reset" class="btn btn-secondary" value="Reset">
   </form>
 </div>
 
 <script>
-let currentPage = 1;
+const translations = {
+  en: {
+    fullname: "Full Name",
+    email: "Email Address",
+    telephone: "Telephone Number",
+    address: "Physical Address",
+    jobtitle: "Desired Job Title",
+    employment: "Employment Type",
+    interest: "Areas of Interest",
+    relocate: "Willing to Relocate?",
+    message: "Additional Message",
+    submit: "Submit",
+    reset: "Reset"
+  },
+  fr: {
+    fullname: "Nom complet",
+    email: "Adresse e-mail",
+    telephone: "Numéro de téléphone",
+    address: "Adresse physique",
+    jobtitle: "Titre de poste souhaité",
+    employment: "Type d'emploi",
+    interest: "Domaines d'intérêt",
+    relocate: "Prêt à déménager?",
+    message: "Message supplémentaire",
+    submit: "Soumettre",
+    reset: "Réinitialiser"
+  },
+  es: {
+    fullname: "Nombre completo",
+    email: "Correo electrónico",
+    telephone: "Número de teléfono",
+    address: "Dirección física",
+    jobtitle: "Título de trabajo deseado",
+    employment: "Tipo de empleo",
+    interest: "Áreas de interés",
+    relocate: "¿Está dispuesto a reubicarse?",
+    message: "Mensaje adicional",
+    submit: "Enviar",
+    reset: "Restablecer"
+  },
+  tn: {
+    fullname: "Leina ka botlalo",
+    email: "Aterese ya imeile",
+    telephone: "Nomoro ya mogala",
+    address: "Aterese ya mmele",
+    jobtitle: "Setlhopha sa tiro se se batlang",
+    employment: "Mofuta wa tiro",
+    interest: "Mabaka a kgatlhego",
+    relocate: "O ikemiseditse go fetola mo gae?",
+    message: "Molaetsa o oketsegileng",
+    submit: "Romela",
+    reset: "Tsosolosa"
+  },
+  kg: {
+    fullname: "Dzina lose",
+    email: "Imeyili adiresi",
+    telephone: "Nhamba ya runhare",
+    address: "Kero ya miviri",
+    jobtitle: "Chinzvimbo chaunoda",
+    employment: "Rudzi rwebasa",
+    interest: "Nzvimbo dzaunofarira",
+    relocate: "Ungachinjira kupi?",
+    message: "Shoko rakawedzerwa",
+    submit: "Tumira",
+    reset: "Dzorerazve"
+  }
+};
 
-function showPage(page) {
-  const fieldsets = document.querySelectorAll('fieldset');
-  const steps = document.querySelectorAll('.step');
-  fieldsets.forEach((fs, index) => fs.classList.remove('active'));
-  fieldsets[page-1].classList.add('active');
-
-  steps.forEach((s, index) => {
-    s.classList.remove('active','completed');
-    if(index < page-1) s.classList.add('completed');
-    else if(index === page-1) s.classList.add('active');
-  });
+function changeLanguage() {
+  const lang = document.getElementById("languageSelect").value;
+  document.querySelector("label[for='fullname']").innerText = translations[lang].fullname;
+  document.querySelector("label[for='email']").innerText = translations[lang].email;
+  document.querySelector("label[for='telephone']").innerText = translations[lang].telephone;
+  document.querySelector("label[for='address']").innerText = translations[lang].address;
+  document.querySelector("label[for='jobtitle']").innerText = translations[lang].jobtitle;
+  document.querySelector("label[for='employment']").innerText = translations[lang].employment;
+  document.querySelector("legend#interestLegend").innerText = translations[lang].interest;
+  document.querySelector("label[for='relocate']").innerText = translations[lang].relocate;
+  document.querySelector("label[for='message']").innerText = translations[lang].message;
+  document.querySelector("input[type='submit']").value = translations[lang].submit;
+  document.querySelector("input[type='reset']").value = translations[lang].reset;
 }
 
-function nextPage(page) {
-  if(validatePage(page)) {
-    currentPage++;
-    showPage(currentPage);
+// Optional: validate form on submit
+document.getElementById("jobForm").onsubmit = function() {
+  const name = document.getElementById("fullname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("telephone").value.trim();
+  if(!name || !email || !phone){
+    alert("Please fill all required fields.");
+    return false;
   }
-}
-
-function prevPage(page) {
-  currentPage--;
-  showPage(currentPage);
-}
-
-function validatePage(page) {
-  if(page === 1){
-    const name = document.getElementById("fullname").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const telephone = document.getElementById("telephone").value.trim();
-    if(!name || !email || !telephone){
-      alert("Please complete all required fields on Personal Information.");
-      return false;
-    }
-  }
-  if(page === 2){
-    const jobtitle = document.getElementById("jobtitle").value;
-    const employment = document.querySelector('input[name="employment"]:checked');
-    if(!jobtitle || !employment){
-      alert("Please select a job title and employment type.");
-      return false;
-    }
-  }
-  if(page === 3){
-    const interests = document.querySelectorAll('input[name="interest"]:checked');
-    if(interests.length === 0){
-      alert("Please select at least one area of interest.");
-      return false;
-    }
-  }
-  return true;
-}
-
-// Initial page display
-showPage(currentPage);
-
-// Form submission
-document.getElementById("multiForm").onsubmit = function() {
-  if(!validatePage(currentPage)) return false;
+  const fullNumber = document.getElementById("countryCode").value + phone;
+  console.log("Full Phone Number:", fullNumber);
   alert("Form submitted successfully!");
   return true;
-}
+};
 </script>
 
 </body>
