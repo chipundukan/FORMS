@@ -1,11 +1,16 @@
 body {
-    background: #f8f9fa;
+    background-color: #f8f9fa;
 }
 
 .card {
     border-radius: 12px;
 }
 
-h3 {
+h2 {
     font-weight: bold;
+}
+
+h5 {
+    margin-top: 20px;
+    font-weight: 600;
 }
