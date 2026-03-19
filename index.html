@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,10 +41,40 @@
 
             <!-- Job Details -->
             <h5>Job Details</h5>
+
             <div class="mb-3">
                 <input type="text" id="position" class="form-control" placeholder="Position Applied For" required>
             </div>
 
+            <!-- Area of Interest -->
+            <div class="mb-3">
+                <label class="form-label">Area of Interest</label>
+                <select id="interest" class="form-select" required>
+                    <option value="">Select Area</option>
+                    <option>Software Development</option>
+                    <option>Networking</option>
+                    <option>Cybersecurity</option>
+                    <option>Data Analysis</option>
+                </select>
+            </div>
+
+            <!-- Relocation -->
+            <div class="mb-3">
+                <label class="form-label">Willing to Relocate?</label>
+                <select id="relocate" class="form-select" required>
+                    <option value="">Select Option</option>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+
+            <!-- Availability -->
+            <div class="mb-3">
+                <label class="form-label">Availability</label>
+                <input type="date" id="availability" class="form-control" required>
+            </div>
+
+            <!-- Experience -->
             <div class="mb-3">
                 <input type="number" id="experience" class="form-control" placeholder="Years of Experience">
             </div>
@@ -76,7 +105,7 @@
 
         </form>
 
-        <p id="output" class="mt-3 text-center"></p>
+        <p id="output" class="text-center mt-3"></p>
 
     </div>
 </div>
