@@ -1,8 +1,10 @@
-document.getElementById("myForm").addEventListener("submit", function(e) {
+document.getElementById("jobForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    let name = document.getElementById("name").value;
+    let firstName = document.getElementById("firstName").value;
+    let position = document.getElementById("position").value;
 
     document.getElementById("output").innerText =
-        "✅ Thank you " + name + "! Message sent.";
+        "✅ Application submitted successfully, " + firstName + 
+        "! You applied for " + position + ".";
 });
