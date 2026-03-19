@@ -1,248 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Job Application Form - Multi Language</title>
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <style>
-    h2.mb-4 {color: BLACK; padding: 48px 0;text-align: center;font-family: 'Roboto', sans-serif; font-weight: 700;}
-    body { background-color: #f2f2f2; font-family: Arial, sans-serif; padding: 20px; }
-    fieldset { border: 2px solid black; padding: 20px; border-radius: 8px; background-color: #fff; margin-bottom: 20px; }
-    legend { color: #007bff; font-weight: bold; }
-    .form-control, .form-check-input { margin-bottom: 10px; }
-    textarea { resize: none; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Form</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="container">
-  <h2 class="mb-4">JOB APPLICATION FORM</h2>
+    <h2>Contact Form</h2>
 
-  <!-- Language Selector -->
-  <div class="mb-3">
-    <label for="languageSelect" class="form-label">Select Language:</label>
-    <select id="languageSelect" class="form-select" onchange="changeLanguage()">
-      <option value="en">English</option>
-      <option value="fr">Français</option>
-      <option value="es">Español</option>
-      <option value="tn">Setswana</option>
-      <option value="kg">Kalanga</option>
-    </select>
-  </div>
+    <form id="myForm">
+        <input type="text" id="name" placeholder="Enter your name" required>
 
-  <form id="jobForm">
+        <input type="email" id="email" placeholder="Enter your email" required>
 
-    <!-- Personal Information -->
-    <fieldset>
-      <legend>Personal Information</legend>
+        <textarea id="message" placeholder="Enter your message" required></textarea>
 
-      <label for="fullname" class="form-label">Full Name</label>
-      <input type="text" id="fullname" class="form-control" name="fullname" placeholder='e.g Nicholas Tiro Chipunduka'>
+        <button type="submit">Submit</button>
+    </form>
 
-      <label for="email" class="form-label">Email Address</label>
-      <input type="email" id="email" class="form-control" name="email" placeholder='e.g example@gmail.com'>
-
-      <label for="telephone" class="form-label">Phone Number</label>
-      <div class="input-group mb-3">
-        <select id="countryCode" class="form-select" style="max-width:120px;">
-          <option value="+267" selected>Botswana (+267)</option>
-          <option value="+27">South Africa (+27)</option>
-          <option value="+263">Zimbabwe (+263)</option>
-          <option value="+260">Zambia (+260)</option>
-          <option value="+255">Tanzania (+255)</option>
-          <option value="+1">USA (+1)</option>
-          <option value="+44">UK (+44)</option>
-        </select>
-        <input type="text" id="telephone" class="form-control" name="telephone" placeholder="77777777">
-      </div>
-
-      <label for="address" class="form-label">Physical Address</label>
-      <input type="text" id="address" class="form-control" name="address" placeholder='e.g Gaborone/Extension14, Francistown/Monarch Area10 e.t.c'>
-    </fieldset>
-
-    <!-- Position Information -->
-    <fieldset>
-      <legend>Position Information</legend>
-
-      <label for="jobtitle" class="form-label">Desired Job Title</label>
-      <select id="jobtitle" class="form-select" name="jobtitle">
-        <option value="">Select a position</option>
-        <option value="Account Executive">Account Executive</option>
-        <option value="Business Development">Business Development</option>
-        <option value="Inside Sales">Inside Sales</option>
-        <option value="Sales Manager">Sales Manager</option>
-        <option value="VP Sales">VP Sales</option>
-      </select>
-
-      <label class="form-label mt-3">Employment Type</label>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="employment" value="Part-time contract">
-        <label class="form-check-label">Part-time contract</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="employment" value="Part-time permanent">
-        <label class="form-check-label">Part-time permanent</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="employment" value="Full-time contract">
-        <label class="form-check-label">Full-time contract</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="employment" value="Full-time permanent">
-        <label class="form-check-label">Full-time permanent</label>
-      </div>
-    </fieldset>
-
-    <!-- Areas of Interest -->
-    <fieldset>
-      <legend id="interestLegend">Areas of Interest</legend>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="interest" value="Account Executive">
-        <label class="form-check-label">Account Executive</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="interest" value="Business Development">
-        <label class="form-check-label">Business Development</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="interest" value="Inside Sales">
-        <label class="form-check-label">Inside Sales</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="interest" value="Sales Manager">
-        <label class="form-check-label">Sales Manager</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" name="interest" value="VP Sales">
-        <label class="form-check-label">VP Sales</label>
-      </div>
-
-      <label for="relocate" class="form-label mt-3">Willing to Relocate?</label>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="relocate" value="Yes">
-        <label class="form-check-label">Yes</label>
-      </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="relocate" value="No">
-        <label class="form-check-label">No</label>
-      </div>
-    </fieldset>
-
-    <!-- Additional Message -->
-    <fieldset>
-      <legend>Additional Message</legend>
-      <label for="message" class="form-label">Why are you suitable for the role?</label>
-      <textarea id="message" class="form-control" name="message" rows="4" placeholder='e.g I deserve the job becaurse  i am ...'></textarea>
-    </fieldset>
-
-    <input type="submit" class="btn btn-primary" value="Submit">
-    <input type="reset" class="btn btn-secondary" value="Reset">
-  </form>
+    <p id="output"></p>
 </div>
 
-<script>
-const translations = {
-  en: {
-    fullname: "Full Name",
-    email: "Email Address",
-    telephone: "Telephone Number",
-    address: "Physical Address",
-    jobtitle: "Desired Job Title",
-    employment: "Employment Type",
-    interest: "Areas of Interest",
-    relocate: "Willing to Relocate?",
-    message: "Additional Message",
-    submit: "Submit",
-    reset: "Reset"
-  },
-  fr: {
-    fullname: "Nom complet",
-    email: "Adresse e-mail",
-    telephone: "Numéro de téléphone",
-    address: "Adresse physique",
-    jobtitle: "Titre de poste souhaité",
-    employment: "Type d'emploi",
-    interest: "Domaines d'intérêt",
-    relocate: "Prêt à déménager?",
-    message: "Message supplémentaire",
-    submit: "Soumettre",
-    reset: "Réinitialiser"
-  },
-  es: {
-    fullname: "Nombre completo",
-    email: "Correo electrónico",
-    telephone: "Número de teléfono",
-    address: "Dirección física",
-    jobtitle: "Título de trabajo deseado",
-    employment: "Tipo de empleo",
-    interest: "Áreas de interés",
-    relocate: "¿Está dispuesto a reubicarse?",
-    message: "Mensaje adicional",
-    submit: "Enviar",
-    reset: "Restablecer"
-  },
-  tn: {
-    fullname: "Leina ka botlalo",
-    email: "Aterese ya imeile",
-    telephone: "Nomoro ya mogala",
-    address: "Aterese ya mmele",
-    jobtitle: "Setlhopha sa tiro se se batlang",
-    employment: "Mofuta wa tiro",
-    interest: "Mabaka a kgatlhego",
-    relocate: "O ikemiseditse go fetola mo gae?",
-    message: "Molaetsa o oketsegileng",
-    submit: "Romela",
-    reset: "Tsosolosa"
-  },
-  kg: {
-    fullname: "Dzina lose",
-    email: "Imeyili adiresi",
-    telephone: "Nhamba ya runhare",
-    address: "Kero ya miviri",
-    jobtitle: "Chinzvimbo chaunoda",
-    employment: "Rudzi rwebasa",
-    interest: "Nzvimbo dzaunofarira",
-    relocate: "Ungachinjira kupi?",
-    message: "Shoko rakawedzerwa",
-    submit: "Tumira",
-    reset: "Dzorerazve"
-  }
-};
-
-function changeLanguage() {
-  const lang = document.getElementById("languageSelect").value;
-  document.querySelector("label[for='fullname']").innerText = translations[lang].fullname;
-  document.querySelector("label[for='email']").innerText = translations[lang].email;
-  document.querySelector("label[for='telephone']").innerText = translations[lang].telephone;
-  document.querySelector("label[for='address']").innerText = translations[lang].address;
-  document.querySelector("label[for='jobtitle']").innerText = translations[lang].jobtitle;
-  document.querySelector("label[for='employment']").innerText = translations[lang].employment;
-  document.querySelector("legend#interestLegend").innerText = translations[lang].interest;
-  document.querySelector("label[for='relocate']").innerText = translations[lang].relocate;
-  document.querySelector("label[for='message']").innerText = translations[lang].message;
-  document.querySelector("input[type='submit']").value = translations[lang].submit;
-  document.querySelector("input[type='reset']").value = translations[lang].reset;
-}
-
-// Optional: validate form on submit
-document.getElementById("jobForm").onsubmit = function() {
-  const name = document.getElementById("fullname").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("telephone").value.trim();
-  if(!name || !email || !phone){
-    alert("Please fill all required fields.");
-    return false;
-  }
-  const fullNumber = document.getElementById("countryCode").value + phone;
-  console.log("Full Phone Number:", fullNumber);
-  alert("Form submitted successfully!");
-  return true;
-};
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
